@@ -1,11 +1,22 @@
+#  RED LIGHT GREEN LIGHT
+A version of the iconic game as seen in the Netflix series: Squid Game, created using Open CV.
 # Red Light, Green Light (Squid Game Edition)
 
+## OBJECTIVE
+Travelling towards the PC camera, the aim is to finally hit the 'w' key to win.
 An advanced real-time computer vision implementation of the iconic **Red Light, Green Light** game from the Netflix series *Squid Game*. This project merges interactive arcade gameplay and visual UI with robust multi-person pose estimation and tracking (powered by **YOLOv8 Pose**, **SORT**, and pixel-level motion differencing).
 
+## RULES
+- You move during the red light period, you lose.
+- You don't hit the 'w' key before the counter goes to zero, you lose.
+- You hit 'q' key in between the game, you lose.
 ---
 
+The code uses a simple motion detection technique to detect movements from the instant the doll opens its eyes (red light). 
+It can be played with multiple players, too. Anyone moves during red light, the game gets over.
 ## 🎮 Key Features
 
+Find demo here: https://youtu.be/WMmskDZWDMI 
 1. **Player vs. Audience Registration (Lobby Phase)**:
    - Anyone standing in front of the camera is detected with pose estimation and assigned a SORT tracking ID.
    - To register as an active **Player**, hold both hands in the air for **5 continuous seconds**.
