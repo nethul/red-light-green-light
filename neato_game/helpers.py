@@ -1,6 +1,10 @@
 import numpy as np
 import math
-from playsound import playsound
+import os
+try:
+    from playsound import playsound
+except ImportError:
+    from playsound3 import playsound
 from sort import Sort
 from image_difference import Diff
 import cv2 as cv
@@ -139,4 +143,9 @@ def playerOut()->None:
     """
     Play a sound indicating that the player is out from the game
     """
-    playsound('playerOut.mp3')
+    sound_path = 'playerOut.mp3'
+    if not os.path.exists(sound_path):
+        possible = os.path.join(os.path.dirname(__file__), '..', 'playerOut.mp3')
+        if os.path.exists(possible):
+            sound_path = possible
+    playsound(sound_path)

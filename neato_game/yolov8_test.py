@@ -1,3 +1,4 @@
+import os
 import cv2 as cv
 from ultralytics import YOLO
 from helpers import *
@@ -7,7 +8,12 @@ from sort import Sort
 import threading
 
 # Load YOLO model
-model = YOLO('yolov8n-pose.pt')
+model_path = 'yolov8n-pose.pt'
+if not os.path.exists(model_path):
+    possible = os.path.join(os.path.dirname(__file__), '..', 'yolov8n-pose.pt')
+    if os.path.exists(possible):
+        model_path = possible
+model = YOLO(model_path)
 red = 10
 radius = 5  # Radius of the circle
 thickness = -1  # Thickness -1 fills the circle
